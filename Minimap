@@ -1,10 +1,13 @@
 @name Minimap
-@persist Props:array X
+@persist Props:array Holo:table X
 
-function vertex mapPos(E:entity,R:array, N) {
-  return (R[N,entity]:pos() - E:pos()) / vec(5,5,5)
+function vertex mapPos(A:entity, B:array, C) {
+
+  return (B[C,entity]:pos() - A:pos()) / vec(5,5,5)
+  #scales the position down to ()
 }
 
-function vertex mapScale(R:array, N) {
-  return
+for(X<Props:count) {
+X++
+Holo[X,string] = mapPos(entity(), Props, X):toString()
 }
